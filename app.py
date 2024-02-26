@@ -54,7 +54,7 @@ movie_select = st.selectbox(
 
 if st.button("RECOMMEND"):
     name, path, overview = recommend(movie_select)
-
+    st.write(path[0])
     with st.container(border=True):
         col1, col2 = st.columns([0.1, 3])
         with col1:
@@ -62,7 +62,6 @@ if st.button("RECOMMEND"):
         with col2:
             st.header(name[0])
         st.image(path[0])
-        st.write(path[0])
         st.write(':red[OVERVIEW :]', str(overview[0]))
 
     with st.container(border=True):
