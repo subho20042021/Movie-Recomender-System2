@@ -61,7 +61,7 @@ if st.button("RECOMMEND"):
             st.header("1.")
         with col2:
             st.header(name[0])
-        st.image(path[0], width=350)
+        st.image(path[0])
         st.write(':red[OVERVIEW :]', str(overview[0]))
 
     with st.container(border=True):
@@ -70,7 +70,7 @@ if st.button("RECOMMEND"):
             st.header("2.")
         with col4:
             st.header(name[1])
-        st.image(path[1], width=350)
+        st.image(path[1])
         st.write(':red[OVERVIEW :]', str(overview[1]))
 
     with st.container(border=True):
@@ -79,7 +79,7 @@ if st.button("RECOMMEND"):
             st.header("3.")
         with col6:
             st.header(name[2])
-        st.image(path[2], width=350)
+        st.image(path[2])
         st.write(':red[OVERVIEW :]', str(overview[2]))
 
     with st.container(border=True):
@@ -88,7 +88,7 @@ if st.button("RECOMMEND"):
             st.header("4.")
         with col8:
             st.header(name[3])
-        st.image(path[3], width=350)
+        st.image(path[3])
         st.write(':red[OVERVIEW :]', str(overview[3]))
     with st.container(border=True):
         col9, col10 = st.columns([0.1, 3])
@@ -96,6 +96,6 @@ if st.button("RECOMMEND"):
             st.header("5.")
         with col10:
             st.header(name[4])
-        st.image(path[4], width=350)
+        st.image(path[4])
         st.write(':red[OVERVIEW :]', str(overview[4]))
 
