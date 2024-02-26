@@ -33,11 +33,9 @@ def recommend(name):
     recommend_movies = []
     movie_poster = []
     movie_overview = []
-    count = 0
     for i in movie_list:
         recommend_movies.append(movies['title'][i[0]])
     for i in movie_list:
-        st.write(movies['id'][i[0]])
         a, b = getresponse(movies['id'][i[0]])
         movie_overview.append(b)
         movie_poster.append(a)
