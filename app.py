@@ -62,6 +62,7 @@ if st.button("RECOMMEND"):
         with col2:
             st.header(name[0])
         st.image(path[0])
+        st.write(path[0])
         st.write(':red[OVERVIEW :]', str(overview[0]))
 
     with st.container(border=True):
