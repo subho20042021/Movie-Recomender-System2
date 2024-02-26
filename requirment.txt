@@ -1,0 +1,9 @@
+jsonschema
+jsonschema-specifications
+numpy
+pandas
+requests
+scraperapi-sdk
+st-annotated-text
+streamlit
+requests
