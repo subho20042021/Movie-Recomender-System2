@@ -23,7 +23,7 @@ def getresponse(uid):
                'url': f'https://api.themoviedb.org/3/movie/{uid}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US' }
     response = requests.get('https://api.scraperapi.com/', params=payload)
     data = response.json()
-    return "https:image.tmdb.org/t/p/w500" + data['poster_path'], data['overview']
+    return "https:image.tmdb.org/t/p/w500/" + data['poster_path'], data['overview']
 
 
 def recommend(name):
@@ -37,6 +37,7 @@ def recommend(name):
     for i in movie_list:
         recommend_movies.append(movies['title'][i[0]])
     for i in movie_list:
+        st.write(movies['id'][i[0]])
         a, b = getresponse(movies['id'][i[0]])
         movie_overview.append(b)
         movie_poster.append(a)
@@ -62,7 +63,6 @@ if st.button("RECOMMEND"):
             st.header("1.")
         with col2:
             st.header(name[0])
-        st.write(path[0])
         st.image(path[0], width=350)
         st.write(':red[OVERVIEW :]', str(overview[0]))
 
