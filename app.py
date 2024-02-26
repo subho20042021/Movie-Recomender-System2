@@ -23,7 +23,7 @@ def getresponse(uid):
                'url': f'https://api.themoviedb.org/3/movie/{uid}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US' }
     response = requests.get('https://api.scraperapi.com/', params=payload)
     data = response.json()
-    return "https:image.tmdb.org/t/p/w500/" + data['poster_path'], data['overview']
+    return "https:image.tmdb.org/t/p/w500" + data['poster_path'], data['overview']
 
 
 def recommend(name):
