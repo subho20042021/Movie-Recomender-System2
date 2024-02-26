@@ -17,6 +17,20 @@ v7 = pickle.load(open('v7.pkl', 'rb'))
 
 similarity = np.concatenate([v, v1, v2, v3, v4, v5, v6, v7], axis=0)
 
+def conv(obj):
+    return obj.split()
+
+def link(obj):
+    l = []
+    for i in obj:
+        l.append(conv(i))
+    path = []
+    for i in l:
+        post = "-".join(i)
+        url = 'https://vegamovies.ong/download-' + post
+        path.append(url)
+    return path
+
 
 def getresponse(uid):
     payload = {'api_key': '2233b77a536cee35ec5b6a78411717ec',
@@ -33,6 +47,7 @@ def recommend(name):
     recommend_movies = []
     movie_poster = []
     movie_overview = []
+    count = 0
     for i in movie_list:
         recommend_movies.append(movies['title'][i[0]])
     for i in movie_list:
@@ -54,16 +69,18 @@ movie_select = st.selectbox(
 
 if st.button("RECOMMEND"):
     name, path, overview = recommend(movie_select)
-    st.text(str(path[0]))
+    paths = link(name)
+
     with st.container(border=True):
         col1, col2 = st.columns([0.1, 3])
         with col1:
             st.header("1.")
         with col2:
             st.header(name[0])
-        st.image(path[0])
-        st.write(':red[OVERVIEW :]', str(overview[0]))
 
+        st.image(str(path[0]))
+        st.write(':red[OVERVIEW :]', str(overview[0]))
+        st.link_button("Download from vega movies", paths[0])
     with st.container(border=True):
         col3, col4 = st.columns([0.1, 3])
         with col3:
@@ -72,6 +89,7 @@ if st.button("RECOMMEND"):
             st.header(name[1])
         st.image(path[1])
         st.write(':red[OVERVIEW :]', str(overview[1]))
+        st.link_button("Download from vega movies", paths[1])
 
     with st.container(border=True):
         col5, col6 = st.columns([0.1, 3])
@@ -81,6 +99,7 @@ if st.button("RECOMMEND"):
             st.header(name[2])
         st.image(path[2])
         st.write(':red[OVERVIEW :]', str(overview[2]))
+        st.link_button("Download from vega movies", paths[2])
 
     with st.container(border=True):
         col7, col8 = st.columns([0.1, 3])
@@ -90,6 +109,8 @@ if st.button("RECOMMEND"):
             st.header(name[3])
         st.image(path[3])
         st.write(':red[OVERVIEW :]', str(overview[3]))
+        st.link_button("Download from vega movies", paths[3])
+
     with st.container(border=True):
         col9, col10 = st.columns([0.1, 3])
         with col9:
@@ -98,4 +119,4 @@ if st.button("RECOMMEND"):
             st.header(name[4])
         st.image(path[4])
         st.write(':red[OVERVIEW :]', str(overview[4]))
-
+        st.link_button("Download from vega movies", paths[4])
